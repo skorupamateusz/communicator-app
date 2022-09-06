@@ -6,7 +6,7 @@ const postReject = async (req, res) => {
     const { id } = req.body;
     const { userId } = req.user;
 
-    // remove that invitation from friend invitations collection
+    // remove invitation from friend invitations collection
     const invitationExists = await FriendInvitation.exists({ _id: id });
 
     if (invitationExists) {

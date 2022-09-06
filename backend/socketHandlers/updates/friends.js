@@ -8,9 +8,7 @@ const updateFriendsPendingInvitations = async (userId) => {
       receiverId: userId,
     }).populate("senderId", "_id username mail");
 
-    // find all active connections of specific userId
     const receiverList = serverStore.getActiveConnections(userId);
-
     const io = serverStore.getSocketServerInstance();
 
     receiverList.forEach((receiverSocketId) => {
@@ -25,7 +23,6 @@ const updateFriendsPendingInvitations = async (userId) => {
 
 const updateFriends = async (userId) => {
   try {
-    // find active connections of specific id (online users)
     const receiverList = serverStore.getActiveConnections(userId);
 
     if (receiverList.length > 0) {

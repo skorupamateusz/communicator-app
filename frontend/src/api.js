@@ -23,7 +23,6 @@ apiClient.interceptors.request.use(
 );
 
 // public routes
-
 export const login = async (data) => {
     try {
         return await apiClient.post("/auth/login", data);
@@ -46,7 +45,7 @@ export const register = async (data) => {
     }
 };
 
-// secure routes
+// private routes
 export const sendFriendInvitation = async (data) => {
     try {
         return await apiClient.post("/friend-invitation/invite", data);
